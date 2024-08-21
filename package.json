@@ -1,0 +1,40 @@
+{
+  "name": "nestjs-expanse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["./dist/**/*"],
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nexfader/nestjs-expanse.git"
+  },
+  "keywords": [
+    "nestjs",
+    "nest",
+    "expand",
+    "relations",
+    "include",
+    "join",
+    "rest",
+    "rest-api"
+  ],
+  "author": "Ivan Makarov <nexfader@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nexfader/nestjs-expanse/issues"
+  },
+  "homepage": "https://github.com/Nexfader/nestjs-expanse#readme",
+  "peerDependencies": {
+    "@nestjs/core": "^10.x",
+    "@nestjs/common": "^10.x"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.4",
+    "@nestjs/schematics": "^10.1.4",
+    "@nestjs/testing": "^10.4.1"
+  }
+}
