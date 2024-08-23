@@ -1,6 +1,7 @@
-# 🌌 NestJS Expanse
+# 🌌 NestJS-Expanse
 
 [![NPM package](https://img.shields.io/npm/v/nestjs-expanse.svg)](https://www.npmjs.org/package/nestjs-expanse)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 A NestJS module that enables REST API consumers to expand related resources in the payload, similar to GraphQL.
 
@@ -12,24 +13,18 @@ Consider a REST API endpoint `/users/1` that returns a user:
 {
   "id": 1,
   "name": "Josephus Miller",
-  "posts": [
-    {
+  "posts": [{
+    "id": 1,
+    "title": "Review of my new hat",
+    "categories": [{
       "id": 1,
-      "title": "Review of my new hat",
-      "categories": [
-        {
-          "id": 1,
-          "name": "Life"
-        }
-      ]
-    }
-  ],
-  "photos": [
-    {
-      "id": 1,
-      "url": "/avatar.jpg"
-    }
-  ],
+      "name": "Life"
+    }]
+  }],
+  "photos": [{
+    "id": 1,
+    "url": "/avatar.jpg"
+  }],
 }
 ```
 
@@ -49,7 +44,7 @@ npm install nestjs-expanse --save
 
 ### Entity Decorators
 
-As you decorate your relations with `Expandable`, NestJS Expanse will be able to detect all the available expansions (including the deep ones).
+As you decorate your relations with `Expandable`, NestJS-Expanse will be able to detect all the available expansions (including the deep ones).
 
 ```typescript
 import { Expandable } from 'nestjs-expanse';
@@ -81,3 +76,7 @@ export class UserController {
   }
 }
 ```
+
+### Behavior On Error
+
+NestJS-Expanse throws an InvalidExpansionException if any of the requested expansions are unavailable. This exception class extends BadRequestException and provides a sensible default message, resulting in an HTTP 400 response with a human-readable error by default, which should suffice for most cases. However, you can handle the exception yourself using Nest's exception filters.
