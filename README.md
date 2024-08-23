@@ -79,4 +79,24 @@ export class UserController {
 
 ### Behavior On Error
 
-NestJS-Expanse throws an InvalidExpansionException if any of the requested expansions are unavailable. This exception class extends BadRequestException and provides a sensible default message, resulting in an HTTP 400 response with a human-readable error by default, which should suffice for most cases. However, you can handle the exception yourself using Nest's exception filters.
+NestJS-Expanse throws an `InvalidExpansionException` if any of the requested expansions are unavailable. This exception class extends BadRequestException and provides a sensible default message, resulting in an HTTP 400 response with a human-readable error by default, which should suffice for most cases. However, you can handle the exception yourself using Nest's [exception filters](https://docs.nestjs.com/exception-filters)
+
+## ORM Integration
+
+One of the library's features is its integration with ORMs, minimizing the need for boilerplate code.
+
+### Prisma
+
+```typescript
+import { includeFromExpansions } from 'nestjs-expanse/prisma';
+
+class UserService {
+  constructor(private readonly prismaService: PrismaService) {}
+
+  findAll(expansions: string[]) {
+    return this.prismaService.user.findMany({
+      include: includeFromExpansions(expansions),
+    });
+  }
+}
+```
