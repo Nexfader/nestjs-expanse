@@ -24,7 +24,7 @@ Consider a REST API endpoint `/users/1` that returns a user:
   "photos": [{
     "id": 1,
     "url": "/avatar.jpg"
-  }],
+  }]
 }
 ```
 
