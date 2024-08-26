@@ -1,4 +1,4 @@
-type PrismaIncludeObject = { [key: string]: true | PrismaIncludeObject };
+export type PrismaIncludeObject = { [key: string]: true | PrismaIncludeObject };
 
 /**
  * Converts an expansion array to Prisma ORM include object

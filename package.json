@@ -3,7 +3,16 @@
   "version": "1.1.0",
   "description": "",
   "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./prisma": "./dist/prisma/index.js"
+  },
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "prisma": ["./dist/prisma/index.d.ts"]
+    }
+  },
   "files": [
     "./dist/**/*"
   ],
