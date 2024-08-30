@@ -1,6 +1,6 @@
 {
   "name": "nestjs-expanse",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "",
   "main": "./dist/index.js",
   "exports": {
@@ -11,8 +11,12 @@
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "typeorm": ["./dist/typeorm/index.d.ts"],
-      "prisma": ["./dist/prisma/index.d.ts"]
+      "typeorm": [
+        "./dist/typeorm/index.d.ts"
+      ],
+      "prisma": [
+        "./dist/prisma/index.d.ts"
+      ]
     }
   },
   "files": [
