@@ -5,14 +5,14 @@
   "main": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
+    "./typeorm": "./dist/typeorm/index.js",
     "./prisma": "./dist/prisma/index.js"
   },
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "prisma": [
-        "./dist/prisma/index.d.ts"
-      ]
+      "typeorm": ["./dist/typeorm/index.d.ts"],
+      "prisma": ["./dist/prisma/index.d.ts"]
     }
   },
   "files": [

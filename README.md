@@ -85,6 +85,25 @@ NestJS-Expanse throws an `InvalidExpansionException` if any of the requested exp
 
 One of the library's features is its integration with ORMs, minimizing the need for boilerplate code.
 
+### TypeORM
+
+```typescript
+import { relationsFromExpansions } from 'nestjs-expanse/typeorm';
+
+class UserService {
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+  ) {}
+
+  findAll(expansions: string[] = []) {
+    return this.userRepository.find({
+      relations: relationsFromExpansions(expansions),
+    });
+  }
+}
+```
+
 ### Prisma
 
 ```typescript
@@ -93,7 +112,7 @@ import { includeFromExpansions } from 'nestjs-expanse/prisma';
 class UserService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  findAll(expansions: string[]) {
+  findAll(expansions: string[] = []) {
     return this.prismaService.user.findMany({
       include: includeFromExpansions(expansions),
     });
