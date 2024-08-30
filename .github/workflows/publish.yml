@@ -8,6 +8,7 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    secrets: inherit
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,6 +25,5 @@ jobs:
       - run: pnpm test
       - run: pnpm build
       - run: npm publish --access public
-        secrets: inherit
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
